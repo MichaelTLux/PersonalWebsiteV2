@@ -1,0 +1,6 @@
+test/unit
+--compilers js:babel-register,css:./test/util/css-compiler.js
+--recursive
+--reporter nyan
+--ui bdd
+--require ./test/util/jsdom.js
