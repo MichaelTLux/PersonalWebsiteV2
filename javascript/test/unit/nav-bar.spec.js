@@ -63,7 +63,7 @@ describe('Nav-Bar Component', () => {
     it('should have a title node with the correct markup', () => {
         expect(titleNode.type).to.equal('span');
         expect(titleNode.props.className).to.equal('mdl-layout-title');
-        expect(titleNode.props.children).to.equal('Resume Presenter');
+        expect(titleNode.props.children).to.equal('Michael Lux');
     });
 
     it('should have a layout spacer with the correct markup', () => {

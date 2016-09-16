@@ -7,10 +7,13 @@ import sinonChai from 'sinon-chai';
 
 import Resume from '../../src/resume';
 
+import NavBar from '../../src/nav-bar';
+
 describe('Resume Component', () => {
     let renderedElement,
         sandbox,
         mdlLayoutNode,
+        navBarNode,
         mdlLayoutContentNode,
         pageContentNode;
 
@@ -20,10 +23,10 @@ describe('Resume Component', () => {
 
     function cacheNodes() {
         mdlLayoutNode = renderedElement.props().children;
-        mdlLayoutContentNode = mdlLayoutNode.props.children;
+        [navBarNode, mdlLayoutContentNode] = mdlLayoutNode.props.children;
         pageContentNode = mdlLayoutContentNode.props.children;
     }
-    
+
     function renderComponent() {
         const componentElement = React.createElement(Resume);
 
@@ -31,13 +34,13 @@ describe('Resume Component', () => {
 
         cacheNodes();
     }
-    
+
     beforeEach(() => {
         sandbox = sinon.sandbox.create();
 
         renderComponent();
     });
-    
+
     afterEach(() => {
         sandbox.restore();
     });
@@ -51,6 +54,10 @@ describe('Resume Component', () => {
         expect(mdlLayoutNode.type).to.equal('div');
         expect(mdlLayoutNode.props.className)
             .to.equal('mdl-layout mdl-js-layout mdl-layout--fixed-header');
+    });
+
+    it('should contain a NavBar component', () => {
+        expect(navBarNode.type).to.equal(NavBar);
     });
 
     it('should contain a layout content node', () => {

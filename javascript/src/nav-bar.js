@@ -5,7 +5,7 @@ export default class Navbar extends React.Component {
         return (
             <header className="mdl-layout__header">
                 <div className="mdl-layout__header-row">
-                    <span className="mdl-layout-title">Resume Presenter</span>
+                    <span className="mdl-layout-title">Michael Lux</span>
                     <div className="mdl-layout-spacer"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
                         <a href="#personal" className="mdl-navigation__link navLink paddingBefore">Personal</a>
