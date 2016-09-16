@@ -8,12 +8,14 @@ import sinonChai from 'sinon-chai';
 import Resume from '../../src/resume';
 
 import NavBar from '../../src/nav-bar';
+import Drawer from '../../src/drawer';
 
 describe('Resume Component', () => {
     let renderedElement,
         sandbox,
         mdlLayoutNode,
         navBarNode,
+        drawerNode,
         mdlLayoutContentNode,
         pageContentNode;
 
@@ -23,7 +25,7 @@ describe('Resume Component', () => {
 
     function cacheNodes() {
         mdlLayoutNode = renderedElement.props().children;
-        [navBarNode, mdlLayoutContentNode] = mdlLayoutNode.props.children;
+        [navBarNode, drawerNode, mdlLayoutContentNode] = mdlLayoutNode.props.children;
         pageContentNode = mdlLayoutContentNode.props.children;
     }
 
@@ -58,6 +60,10 @@ describe('Resume Component', () => {
 
     it('should contain a NavBar component', () => {
         expect(navBarNode.type).to.equal(NavBar);
+    });
+
+    it('should contain a drawer component', () => {
+        expect(drawerNode.type).to.equal(Drawer);
     });
 
     it('should contain a layout content node', () => {
